@@ -24,14 +24,20 @@
         var $myP = $( "<p/>" );
         var $mySpan = $( "<span/>" );
         var $myDiv = $( "<div/>" );
-        var $myLi = $( "<li/>")
+        var $myDivOne = $( "<div/>" );
+        $myDivOne.addClass( "second" );
+        var $myDivTwo = $( "<div/>" );
+        $myDivTwo.addClass( "third");
+        var $myLi = $( "<li/>");
         // console.log($myP);
         $myDiv.html("Where is my mind?");
+        $myDivOne.html( "Some such stuff" );
         console.log($myDiv.text());
         // $( "body" ).html( $myDiv );
         $myDiv.appendTo( "body" );
-        $( "body" ).append.append( $myDiv );
-        $myDiv.appendTo( "body" ).appendTo( "div");
+        $myDiv.appendTo( "div" );
+        $myDivOne.appendTo( "div" );
+        // $myDiv.appendTo( ".third" );
        // $( $mySpan ).append( $myDiv );
         // YOUR JAVASCRIPT CODE GOES ABOVE THIS COMMENT //
     });

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <title>
+      
+    </title>
+  </head>
+  <style>
+    div {
+      margin: 0 auto;
+      width: 100px;
+      padding-top: 300px;
+      padding-bottom: 30px;
+    }
+    
+  </style>
+  <body id="random_background" >
+      <div id="button_container">
+        <button id="button">Click me!</button>
+      </div>
+      <script>
+        function randomColor() {
+		      return '#' + Math.random().toString(16).slice(2, 8);
+	      };
+        // var colors = ['#ff0000', '#00ff00', '#0000ff'];
+        // var random_color = colors[Math.floor(Math.random() * colors.length)];
+        $('button').click(function() {
+          $('body').css("background", randomColor());
+          
+        });
+      </script>
+  </body>
+</html>
+
+
+
+<!--
+Create a buttom *
+make it clickable *
+Create a random color *
+Connect the button to switching the background 
+  write a function that affects the background
+  make the affect the random color
+
+-->

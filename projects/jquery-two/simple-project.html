@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>jQuery Two</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>jQuery Two : Simple Project</h1>
+    <!-- YOUR HTML MARKUP GOES BELOW THIS COMMENT  -->
+    
+    
+    
+    
+    <!-- YOUR HTML MARKUP GOES ABOVE THIS COMMENT  -->
+  </div>
+  <script>
+    $(document).ready(function() {
+        // YOUR JAVASCRIPT CODE GOES BELOW THIS COMMENT //
+        var $myP = $( "<p/>" );
+        var $mySpan = $( "<span/>" );
+        var $myDiv = $( "<div/>" );
+        var $myLi = $( "<li/>")
+        // console.log($myP);
+        $myDiv.html("Where is my mind?");
+        console.log($myDiv.text());
+        // $( "body" ).html( $myDiv );
+        $myDiv.appendTo( "body" );
+        $( "body" ).append.append( $myDiv );
+        $myDiv.appendTo( "body" ).appendTo( "div");
+       // $( $mySpan ).append( $myDiv );
+        // YOUR JAVASCRIPT CODE GOES ABOVE THIS COMMENT //
+    });
+  </script>
+</body>
+
+</html>

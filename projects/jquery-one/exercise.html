@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise</title>
+    
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Hello Human</h1>
+            <p id="target">Or is this blue?</p>
+            <p>THIS SHOULD BE BLUE</p>
+            <div class="holder">
+                <ul>
+                    <li>numba one</li>
+                    <li>numba two</li>
+                </ul>
+            </div>
+            <div class="holder">
+                <ul>
+                    <li>number three</li>
+                    <li>number four</li>
+                    <li>asdfafs</li>
+                </ul>
+            </div>
+        </div>
+        <script>
+        // Exercise 1
+            // one
+            var allDIVs = $('div');
+            // two
+            var allULs = $('ul');
+            // three
+            $('p').css("color", "blue");
+            // four
+            $('#container').css("background-color", "red");
+            // five
+            $('.holder').css("border", "1px solid black");
+            // extra 1
+            $('ul li').css("font-weight", "bold");
+            // extra 2 
+            // $('p').not($('#target')).remove();
+        //Exercise 2
+            // one
+            $('#container').prepend('<div>hello</div>');
+            // two
+            $('#container').append('<div>goodbye</div>');
+            // three
+            $('body').prepend('<div>PREPEND</div>');
+            $('body').append('<div>APPEND</div>');
+            // four
+            $('.holder:first').prepend('<div id="first">BEFORE</div>');
+            // $('.holder:first').before('<div id="first">BEFORE</div>');
+            // five 
+            $('.holder:last').append('<div id="last">AFTER</div>');
+            // $('.holder:last').after('<div id="last">AFTER</div>');
+            // six
+            var newDetachedDiv = $('<div>This is some text ;)</div>');
+            // seven
+            newDetachedDiv.css("color", "blue");
+            // eight
+            newDetachedDiv.appendTo('body');
+            // nine
+            // $('div').remove();
+            // ten
+            // $('#container').empty(); 
+            // eleven 
+            var orphanNode = $('#target').detach();
+            // twelve 
+            $('#container').append(orphanNode);
+            //thirteen
+            $('div').find('div').css("background-color", "magenta");
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+body {
+    background: rgb(21, 77, 82);
+    color: rgb(45, 45, 45);
+    padding: 10px;
+    font-family: arial;
+}
+
+header {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+}
+
+h2 p {
+    font-family: "Droid-serif", sans-serif;
+    color: "red";
+}
+
+[id=all-contents] {
+    max-width: 800px;
+    margin: auto;
+}
+
+
+/* navigation menu */
+
+nav {
+    background: rgb(93, 134, 77);
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 10px;
+    border-radius: 17px 17px 17px 17px;
+    border: 1px solid #000000;
+}
+
+nav header {
+    display: flex;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    flex: 1;
+}
+
+nav ul {
+    list-style-image: none;
+}
+
+nav li {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+/* main container area beneath menu */
+
+main {
+    background: rgb(245, 238, 219);
+    display: flex;
+}
+
+[class=sidebar] {
+    margin-right: 25px;
+    padding: 10px;
+}
+
+[class=sidebar] img {
+    width: 200px;
+}
+
+[class=content] {
+    flex: 1;
+    padding: 15px;
+}
+
+[class=interests] header {
+    font-size: 1.25em;
+}
+#portfolio {
+                list-style-type: none;
+                padding-left: 0;
+            }
+
+            #portfolio li {
+                background: #fff;
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+
+            #portfolio li:hover {
+                background: #eee;
+            } 
+
+            #portfolio a {
+                text-decoration: none;
+                color: #454545;
+            }

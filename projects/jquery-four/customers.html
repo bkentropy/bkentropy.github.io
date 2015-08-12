@@ -1,0 +1,26 @@
+<html>
+
+<head></head>
+
+<body>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <script>
+    $.get('customers.json', function(data){
+      var page = $.map(jsonData, function(d){
+        var ul = $('<ul>');
+        for (var key in d) {
+          if (Array.isArray(d[key])) {
+            var li = $('<li>').text(key + ": " + d[key]);
+            ul.append(li);
+          }
+        }
+        return ul;
+      });
+
+      $('body').append();
+  
+    </script>
+</body>
+
+</html>

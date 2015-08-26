@@ -84,10 +84,12 @@ $(document).ready(function(){
   var createTable = function(heroes) {
       var createRow = function(hero) {
         var $row = $('<tr>');
+        
         var $name = $('<td>').text(hero.name);
         var $notes = $('<td>').text(hero.notes || "No Data Available.");
         $row.append($name);
         $row.append($notes);
+        
         $notes.css('padding', '15px');
         $name.css("padding", "15px");
         $row.css('border', "1px solid black");

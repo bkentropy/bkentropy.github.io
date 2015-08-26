@@ -6,11 +6,14 @@
 
   <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script>
-    $.get('customers.json', function(data){
-      var page = $.map(jsonData, function(d){
+    $.get('data/customers.json', function(data){
+      console.log(data);
+      // Page is array that is not used.
+      var page = $.map(data, function(d){
         var ul = $('<ul>');
+        // ul.append($('<li>').text("name: " + person["name"])
         for (var key in d) {
-          if (Array.isArray(d[key])) {
+          if (Array.isArray(d[key]) || key === "name") {
             var li = $('<li>').text(key + ": " + d[key]);
             ul.append(li);
           }
@@ -18,8 +21,8 @@
         return ul;
       });
 
-      $('body').append();
-  
+      $('body').append(page);
+    });
     </script>
 </body>
 

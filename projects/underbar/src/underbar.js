@@ -222,9 +222,9 @@
     // TIP: Many iteration problems can be most easily expressed in
     // terms of reduce(). Here's a freebie to demonstrate!
     if(Array.isArray(collection))
-    return _.reduce(collection, function(wasFound, item) {
-    return wasFound ? true : item===target;
-    }, false);
+      return _.reduce(collection, function(wasFound, item) {
+        return wasFound ? true : item===target;
+      }, false);
     else {
       for(var key in collection) {
         if (target in collection) return true;
@@ -244,7 +244,7 @@
     // This is better
     // iterator = iterator || _.identity 
     if(iterator===undefined) {
-        return _.reduce(collection, function(isWhat, item){
+      return _.reduce(collection, function(isWhat, item){
         return isWhat && item ? true : false;
       }, true)
     }
@@ -286,14 +286,31 @@
   //   }, {
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
-  _.extend = function(obj) {
-    var args = Array.prototype.slice.call(arguments,1);
-    _.map(args, function(newObj){
+  
+  // Maybe rewrite with EACH instead of MAP
+  // _.extend = function(obj) { 
+  //   var args = Array.prototype.slice.call(arguments,1);
+  //   _.each(args, function(newObj){
+  //     for(var key in newObj) {
+  //       obj[key] = newObj[key];
+  //     }
+  //   });
+  //   return obj;
+  // };
+  
+  
+  
+  
+  
+  
+  _.extend = function(obj, newObj) {
+    _.each(newObj, function(vals){
       for(var key in newObj) {
-        obj[key] = newObj[key];
+        key = newObj[vals];
       }
     });
     return obj;
   };
+  
 
 }());

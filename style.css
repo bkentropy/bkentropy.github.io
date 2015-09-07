@@ -2,7 +2,7 @@ body {
     background: rgb(21, 77, 82);
     color: rgb(45, 45, 45);
     padding: 10px;
-    font-family: arial;
+    font-family: Helvetica, arial;
 }
 
 header {
@@ -11,11 +11,11 @@ header {
 }
 
 h2 {
-    font-family: 'Oswald', sans-serif;
+    font-family: Helvetica, 'Oswald', sans-serif;
 }
 
 h2 p {
-    font-family: "Droid-serif", sans-serif;
+    font-family: Helvetica, "Droid-serif", sans-serif;
     color: "red";
 }
 

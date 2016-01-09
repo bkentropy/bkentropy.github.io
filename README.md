@@ -1,2 +1,2 @@
 # bkentropy.github.io
-My will manifest as a website.
+My first website.  Work in progress.

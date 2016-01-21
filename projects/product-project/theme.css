@@ -3,12 +3,22 @@
 /*    width: 60%;*/
 /*}*/
 
+
+
+
+
 #input-form {
     float: right;
+    padding: 0;
+    margin: 35px;
 }
 
 li {
     font-family: arial, sans-serif;
+}
+
+h1 {
+    float: left;
 }
 
 /*#headerlike {*/

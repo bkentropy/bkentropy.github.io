@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Operation Spark || Drum Machine</title>
+        <meta name="description" content="Operation Spark Motion Poem">
+        <meta name="author" content="operationspark.org">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="bower_components/jQuery/dist/jquery.min.js"></script>
+
+        <!-- our app javascript code -->
+        <script src="js/opspark.js"></script>
+
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <div class="drum-buttons">
+            <button name="kick">Kick (A)</button>
+            <button name="snare">Snare (S)</button>
+            <button name="hihat">Hi Hat (D)</button>
+        </div>
+
+        <script>
+            (function () {
+                'use strict';
+
+                var
+                    app = window.opspark.makeApp();
+
+                    var kick = app.createKick();
+                    kick.trigger(1);
+
+                    var snare = app.createSnare();
+                    snare.trigger(2);
+
+                    $('[name=kick]', '.drum-buttons').on('click', function () {
+                        console.log('kick');
+                        kick.trigger(app.getCurrentTime());
+                    });
+
+                    $('[name=snare]', '.drum-buttons').on('click', function () {
+                        console.log('snare');
+                        snare.trigger(app.getCurrentTime());
+                    });
+
+            })();
+        </script>
+    </body>
+</html>

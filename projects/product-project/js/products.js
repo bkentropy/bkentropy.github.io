@@ -1,5 +1,8 @@
 $(document).ready(function(){
     
+    var $main = $('main');
+    
+    
     var printItems = function(arr) {
             var $divs = arr.map(function(item) {
                 var $item = $('<div id="item">');
@@ -29,54 +32,92 @@ $(document).ready(function(){
             $('main').html($divs);
             
     };
-    
 
-    function searchFunction(query, products){
-            // function isComplex(value) {
-            //       if (value !== null && typeof value === "object") return true;
-            //       return false;
-            // }
-    		query = query.toLowerCase();
-    		var results = products.filter(function(product){
-    		    // Collect the KEYS of products
-    		    var keys = Object.keys(product);
+    function searchFunction(query, products) {
+        
+        // This is one long string that holds all of a product's values
+        function stringifyValues(obj) {
+          var oKeys = Object.keys(obj);
+          var stringValues = [];
+          if(typeof obj === 'number') {
+           return obj; 
+          }
+          if(typeof obj === 'string') {
+           return _.words(obj); 
+          }
+          if(Array.isArray(obj)) {
+           var tempArray = [];
+           for(var i = 0; i < obj.length; i ++) {
+            tempArray.push(stringifyValues(obj[i]) + ""); 
+           }
+           return tempArray;
+          }
+          for(oKeys in obj) {
+            stringValues.push(stringifyValues(obj[oKeys]) + "");
+          }
+          return stringValues.join(',').toLowerCase();
+        }
+        
+        var results = _.filter(products, function(product) {
+            return stringifyValues(product).includes(query);
+        });
+        return results;
+        
+    };
+
+
+
+
+
+
+
+    // function searchFunction(query, products){
+    //         // function isComplex(value) {
+    //         //       if (value !== null && typeof value === "object") return true;
+    //         //       return false;
+    //         // }
+    // 		query = query.toLowerCase();
+    // 		var results = products.filter(function(product){
+    // 		    // Collect the KEYS of products
+    // 		    var keys = Object.keys(product);
     		    
-    		    // This filters the KEYS for strings, and creates a new array 
-    		    // Maybe put John's COMPLEX V SIMPLE function here
-    		    var stringProps = _.filter(keys, function (key) {
-    		        return typeof(key) === 'string';
-    		    });
+    // 		    // This filters the KEYS for strings, and creates a new array 
+    // 		    // Maybe put John's COMPLEX V SIMPLE function here
+    // 		    var stringProps = _.filter(keys, function (key) {
+    // 		        return typeof(key) === 'string';
+    // 		    });
     		    
     		    
-    		    // Combines the keys that are strings into one long Property Text
-    		    // describing the product.
-    		    var propText = _.reduce(stringProps, function(total,str){
-    		        if (product[str])
-    		        return total + product[str];
-    		    }, "");
+    // 		    // Combines the keys that are strings into one long Property Text
+    // 		    // describing the product.
+    // 		    var propText = _.reduce(stringProps, function(total,str){
+    // 		        if (product[str])
+    // 		        return total + product[str];
+    // 		    }, "");
     		    
-    		    // This is an array of all of the words that are values for 
-    		    // each 
-    			var productKeywords = _.words(propText.toLowerCase());
+    // 		    // This is an array of all of the words that are values for 
+    // 		    // each 
+    // 			var productKeywords = _.words(propText.toLowerCase());
     			
-    			// returns true if a word in desc begins with the query
-    			var searchHits = [];
-    			// For each product keyword, which is an array of all the words 
-    			// in all the values of the products run the function on them
-    			_.forEach(productKeywords, function(word){
-    			    // Push the words that START with the QUERY into searchHits
-    				searchHits.push(_.startsWith(word, query));
-    			});
-    			return (_.some(searchHits));
-    		});
-    		return results;
-    	}
+    // 			// returns true if a word in desc begins with the query
+    // 			var searchHits = [];
+    // 			// For each product keyword, which is an array of all the words 
+    // 			// in all the values of the products run the function on them
+    // 			_.forEach(productKeywords, function(word){
+    // 			    // Push the words that START with the QUERY into searchHits
+    // 				searchHits.push(_.startsWith(word, query));
+    // 			});
+    // 			return (_.some(searchHits));
+    // 		});
+    // 		return results;
+    // 	}
     
     
     
     $.getJSON('data/product.json', function(products){
         
         printItems(products);
+
         
         $('#searchInput').on('input', function(){
 			var input = $('#searchInput').val();
